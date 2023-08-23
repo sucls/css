@@ -1,0 +1,101 @@
+:root {
+  --theme-bg-dark: #242c46;
+  --theme-bg-light: #f0f8ff;
+  --siderbar-width: 200px;
+}
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+  background: #eee;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #000;
+}
+::-webkit-scrollbar-track {
+  padding-left: 1px;
+  padding-right: 1px;
+  background-color: #518391;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+}
+body[data-theme="dark"] {
+  background-color: var(--theme-bg-dark);
+}
+body[data-theme="light"] {
+  background-color: var(--theme-bg-light);
+}
+body .layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+body header {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2c3656;
+  color: #f0f8ff;
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.1) 0px 8px 10px -6px;
+}
+body header .logo {
+  color: #f0f8ff;
+  padding: 20px;
+  font-weight: 600;
+}
+body header .info ul li {
+  float: left;
+  padding: 20px;
+}
+body header .info ul li:hover {
+  cursor: pointer;
+  background-color: #265663;
+}
+body main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+body main .siderbar {
+  width: 200px;
+  height: 100%;
+  border-right: 1px solid #464444;
+  flex: none;
+  overflow: auto;
+}
+body main .page-container {
+  flex: 1;
+  overflow: auto;
+}
+body main .page-container + p {
+  padding: 10px;
+}
+/*  组件样式  */
+.input {
+  background: #eee;
+}
+.input.switch {
+  position: relative;
+  height: 25px;
+  width: 50px;
+  border-radius: 30px;
+}
+.input.switch > span {
+  position: absolute;
+  background: #518391;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  border-radius: 50%;
+}

@@ -1,0 +1,40 @@
+/* 
+    背景选择： https://webgradients.com/
+    效果选择：
+    边框选择：
+    字体选择：
+*/
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+body{
+    height: 100vh;
+    width: 100wh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    &[data-theme="dark"]{
+        background-image: linear-gradient(to top, #09203f 0%, #537895 100%);
+    }
+
+    &[data-theme="light"]{
+        background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+    }
+
+    nav{
+        height: 80px;
+        border: 1px solid #537895;
+    }
+
+    main{
+        background: transparent;
+        flex: 1;
+    }
+    
+}
