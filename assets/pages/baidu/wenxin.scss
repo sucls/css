@@ -7,9 +7,13 @@
     font-style: normal;
 }
 
+$default-bg: #fff;
+$header-height: 63px;
+$nav-height: 52px;
+
 %header-bg-h{
-    background-color: #fff;
-    height: 52px;
+    background-color: $default-bg;
+    height: $nav-height;
 }
 
 body{
@@ -21,12 +25,83 @@ body{
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
     font-variant: tabular-nums;
     line-height: 1.5715;
-    background-color: #fff;
+    background-color: $default-bg;
 
     .header{
+
+        .header-wrapper{
+
+            .header-default{
+                display: flex;
+                background-color: $default-bg;
+                height: $header-height;
+                justify-content: space-between;
+                padding: 0 0 0 24px;
+                position: relative;
+                z-index: 9999;
+
+                .header-left{
+                    nav{
+                        display: flex;
+                        height: $header-height;
+                        margin-left: 10px;
+                        position: relative;
+
+                        >ul{
+                            display: flex;
+                            flex-shrink: 0;
+                            position: relative;
+
+                            >li{
+                                flex-shrink: 0;
+                                position: relative;
+                                z-index: 2;
+                                // border-top: 1px solid #0f0;
+
+                                &.nav-has-tag{
+
+                                    >a{
+                                        color: #2468f2;
+                                    }
+                                }
+
+                                &.active-line{
+                                    background-color: #2468f2;
+                                    bottom: 0;
+                                    height: 2px;
+                                    padding: 0;
+                                    position: absolute;
+                                    transition: all .9s cubic-bezier(.4,0,.2,1) 50ms;
+                                    width: 0;
+                                    z-index: 1;
+                                }
+
+                                >a{
+                                    color: #191a24;
+                                    cursor: pointer;
+                                    display: block;
+                                    font-size: 14px;
+                                    line-height: 64px;
+                                    padding: 0 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .header-right{
+
+                }
+            }
+            .header-dropdown{
+
+            }
+        }
+    }
+
+    .nav{
         @extend %header-bg-h;
 
-        .header-container{
+        .nav-wrapper{
             position: relative;
             width: 100%;
             z-index: 20;
@@ -40,7 +115,7 @@ body{
                 top: 0;
             }
 
-            .container{
+            .nav-container{
                 width: 100%;
                 overflow: hidden;
                 position: relative;
@@ -61,6 +136,9 @@ body{
                             span{
                                 color: #2468f2;
                             }
+                        }
+                        &:hover span{
+                            color: #2468f2;
                         }
                         & span{
                             font-family: PingFangSC-Semibold;

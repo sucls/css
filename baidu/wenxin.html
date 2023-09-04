@@ -6,15 +6,54 @@
     <title>文心一言</title>
 
     <link rel="stylesheet" href="/assets/pages/baidu/wenxin.css">
+
+    <script>
+        // 
+        Object.defineProperty(window, 'MutationObserver', {
+            writable: false,
+            configurable: false
+        })
+    </script>
 </head>
 <body>
-    <div class="page-container">
-        <section>
+    <header class="header">
+        <div class="header-wrapper">
+            <div class="header-default">
+                <div class="header-left">
+                    <a class="logo" href="###"></a>
+                    <nav class="header-nav">
+                        <ul>
+                            <li><a>最新活动</a></li>
+                            <li><a>产品</a></li>
+                            <li><a>解决方案</a></li>
+                            <li><a>文心一言</a></li>
+                            <li><a>云市场</a></li>
+                            <li><a>合作与生态</a></li>
+                            <li><a>开发者</a></li>
+                            <li><a>服务与支持</a></li>
+                            <li><a>了解智能云</a></li>
+
+                            <li class="active-line"></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="header-right">
+
+                </div>
+            </div>
+            <div class="header-dropdown">
+
+            </div>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <section style="height: 300px;width: 100%;border:1px solid #f00;">
 
         </section>
-        <header class="header">
-            <div class="header-container">
-                <div class="container">
+        <nav class="nav">
+            <div class="nav-wrapper">
+                <div class="nav-container">
                     <ul>
                         <li><span>最新咨询</span></li>
                         <li><span>了解文心一言</span></li>
@@ -24,8 +63,9 @@
                     </ul>
                 </div>
             </div>
-        </header>
-        <main class="main">
+        </nav>
+
+        <div class="page-container">
             <section>
 
             </section>
@@ -41,13 +81,38 @@
             <section>
 
             </section>
-        </main>
-    </div>
+        </div>
+    </main>
 </body>
 
 <script>
-    document.addEventListener('onscroll', (e)=>{
-        console.log('滚动条', e)
+
+    document.addEventListener('DOMContentLoaded', e=>{
+        console.log( 'DOMContentLoaded' )
+
+        document.addEventListener('scroll', e=>{
+            console.log('滚动条', e)
+        })
+
+        document.querySelector('.header nav>ul').addEventListener('click',e=>{
+            let li = e.target.parentNode
+            console.log( e.target )
+            li.classList.add('nav-has-tag')
+        })
+
+        document.querySelectorAll('.header nav>ul>li').forEach(dom=>{
+            let activeLine = document.querySelector('.header nav>ul .active-line');
+
+            dom.addEventListener('mouseenter',e =>{
+                activeLine.style.width = e.target.clientWidth + 'px';
+                activeLine.style.left = e.target.offsetLeft + 'px';
+            })
+
+            dom.addEventListener('mouseleave',e =>{
+                activeLine.style.width = 0;
+            })
+        })
+
     })
 
 </script>

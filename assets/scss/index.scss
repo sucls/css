@@ -1,24 +1,3 @@
-// 定义变量
-$theme-bg-dark: #242c46;
-$theme-bg-light: #f0f8ff;
-$siderbar-width: 200px;
-
-::-webkit-scrollbar {
-    width: 2px;
-    height: 2px;
-    background: #eee;
-}
-::-webkit-scrollbar-thumb{
-    border-radius: 5px;
-    background: #000;
-}
-
-::-webkit-scrollbar-track {
-    padding-left: 1px;
-    padding-right: 1px;
-    background-color: #518391;
-}
-
 *{
     padding: 0;
     margin: 0;
@@ -27,11 +6,17 @@ $siderbar-width: 200px;
     box-sizing: border-box;
 }
 
-// 央视嵌套
+// 样式嵌套
 body{
     width: 100vw;
     height: 100vh;
-    overflow-x: hidden;
+    overflow: hidden;
+
+    background-image: -moz-linear-gradient(90deg, rgb(153, 255, 250), rgb(255, 184, 219));
+
+    background-image: -webkit-linear-gradient(90deg, rgb(153, 255, 250), rgb(255, 184, 219));
+
+    background-image: linear-gradient(90deg, rgb(153, 255, 250), rgb(255, 184, 219));
 
     font:{
         size: 16px;
@@ -39,69 +24,4 @@ body{
         family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     }
 
-    &[data-theme="dark"]{
-        background-color: $theme-bg-dark;
-    }
-    
-    &[data-theme="light"]{
-        background-color: $theme-bg-light;
-    }
-
-    .layout{
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        width: 100%;
-    }
-
-    header{
-        height: 60px;
-        display: flex;
-        justify-content:space-between;
-        align-items: center;
-        background: #2c3656;
-        color:#f0f8ff;
-
-        box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
-                    rgba(0, 0, 0, 0) 0px 0px 0px 0px,
-                    rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
-                    rgba(0, 0, 0, 0.1) 0px 8px 10px -6px;
-
-        .logo{
-            color:#f0f8ff;
-            padding: 20px;
-            font-weight: 600;
-        }
-        .info{
-            ul{
-                li{
-                    float: left;
-                    padding: 20px;
-                    &:hover{
-                        cursor: pointer;
-                        // color: black;
-                        background-color: #265663;
-                    }
-                }
-            }
-        }
-    }
-
-    main{
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        .siderbar{
-            width: $siderbar-width;
-            height: 100%;
-            border-right: 1px solid #464444;
-            flex: none;
-            overflow: auto;
-        }
-        .page-container{
-            flex: 1;
-            overflow: auto;
-        }
-    }
 }

@@ -1,0 +1,91 @@
+@charset "UTF-8";
+/* 
+    背景选择： https://webgradients.com/
+    效果选择：
+    边框选择：
+    字体选择：
+*/
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+  background: #eee;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #000;
+}
+
+::-webkit-scrollbar-track {
+  padding-left: 1px;
+  padding-right: 1px;
+  background-color: #518391;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  /* box的高宽由content决定，不会受padding border margin的影响  */
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  font-size: 16px;
+  font-weight: 300;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+body[data-theme=dark] {
+  background-color: #242c46;
+}
+body[data-theme=light] {
+  background-color: #f0f8ff;
+}
+body .layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+body header {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2c3656;
+  color: #f0f8ff;
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.1) 0px 8px 10px -6px;
+}
+body header .logo {
+  color: #f0f8ff;
+  padding: 20px;
+  font-weight: 600;
+}
+body header .info ul li {
+  float: left;
+  padding: 20px;
+}
+body header .info ul li:hover {
+  cursor: pointer;
+  background-color: #265663;
+}
+body main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+body main .siderbar {
+  width: 200px;
+  height: 100%;
+  border-right: 1px solid #464444;
+  flex: none;
+  overflow: auto;
+}
+body main .page-container {
+  flex: 1;
+  overflow: auto;
+}/*# sourceMappingURL=index.css.map */
