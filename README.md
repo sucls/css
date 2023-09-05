@@ -9,6 +9,17 @@ less  scss sass
 + Live Sass Compiler
 + Live Server
 
+### 启动
+
+  + 基于 Live Server
+    ```
+      右下角 'Go Live'
+    ```
+  + 基于Express
+    ```bash
+      node ./serve.js
+    ```
+
 ### 应用
 
   + 布局 (layout)

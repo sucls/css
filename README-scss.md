@@ -103,13 +103,18 @@ main{
 
 ```
 
++ 内置函数
+
+ - 颜色相关 lighten()、darken()、saturate()、desaturate()、fade-in()、fade-out()
+ - 计算相关 random()
+
 ### 循环
 
 ```scss
 
 $class: "item";
 
-@for $i from 1 throuth 5{
+@for $i from 1 through 5{
     .#{$class}-#{$i}{
         height: 10 + $i + px;
     }
