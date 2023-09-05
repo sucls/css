@@ -291,17 +291,26 @@ function bindImageListener(imgItem){
 }
 
 function initImages(){
+    
     loadImages(items=>{
+        let total = items.length;
         items.forEach(item=>{
             imageList.appendChild(item);
             bindImageListener(item); // 绑定各种事件
         })
 
         startLoadding();
-        $(imageList).imagesLoaded(()=>{ // 图片加载会计算，不然没有高度
-            layoutImages(); // 重新布局
-            finishLoadding();
+        $(imageList).imagesLoaded()
+        .always(()=> {
+            // layoutImages(); // 重新布局
+            finishLoadding()
         })
+        .progress( ( instance, image ) =>{
+            if( Math.floor(instance.progressedCount/ total)%20 == 0  ){ // 20%进度进行一次
+                // layoutImages(instance.images.filter(img=>img.isLoaded).map(img=>img.img.parentNode)); // 重新布局
+            }
+            layoutImages([image.img.parentNode]);
+        });
         
     }); // 加载图片
 }
@@ -321,8 +330,8 @@ function layout(){
         return cols.indexOf(maxVal);
     }
     
-    return function(){
-        imageList.querySelectorAll('.image-item:not(.placed)').forEach(item=>{
+    return function( items ){ // items
+         (items && items.length? items : imageList.querySelectorAll('.image-item:not(.placed)')).forEach(item=>{
             let minIndex = findMinColumnIndex(columns);
             let top = columns[minIndex]+ (columns[minIndex]==0?0:gap);
             item.style.top = top+'px';
@@ -371,9 +380,8 @@ window.onload = function(){
     //     }
     // });
 
-
     document.querySelector('.image-container').addEventListener('scroll', throttle(function(evt){
-        let loadingImage = false;
+        let loadingImage;
         if(this.scrollHeight - this.scrollTop <= this.clientHeight + 20 && !loadingImage){
             loadTimes++;
             loadingImage = true;

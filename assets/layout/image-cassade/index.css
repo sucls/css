@@ -209,6 +209,22 @@ body main {
   display: flex;
   overflow: hidden;
 }
+body main .image-nav {
+  width: 180px;
+  border-right: 1px solid #3b4a74;
+}
+body main .image-nav .nav-wrapper ul {
+  padding: 20px 10px;
+}
+body main .image-nav .nav-wrapper ul li {
+  padding: 16px;
+  color: antiquewhite;
+  letter-spacing: 3px;
+}
+body main .image-nav .nav-wrapper ul li:hover {
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.6);
+}
 body main .image-container {
   flex: 1;
   position: relative;
@@ -259,6 +275,7 @@ body main .image-container .image-list .image-item {
   left: 40%;
   border-radius: 15px;
   margin: 0 10px;
+  transition: all 0.5s linear;
   /*  浮动图片信息 */
 }
 body main .image-container .image-list .image-item:hover {
@@ -416,6 +433,7 @@ body main .image-container .image-property .propery-modal .property-content .pro
 body main .image-container .image-viewer {
   position: fixed;
   inset: 0;
+  transition: all 0.5s ease-in-out 0.2s;
 }
 body main .image-container .image-viewer .image-marker {
   position: absolute;
